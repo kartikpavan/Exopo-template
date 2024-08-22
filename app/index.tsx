@@ -1,8 +1,10 @@
+import { AuthSelector } from "@/redux/slices/authSlice";
 import { Redirect } from "expo-router";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Page() {
-   const isAuthenticated = true;
+   const { isAuthenticated } = useSelector(AuthSelector);
+   console.log(isAuthenticated);
    if (!isAuthenticated) {
       return <Redirect href="/register" />;
    }
